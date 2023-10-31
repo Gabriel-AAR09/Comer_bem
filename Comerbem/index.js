@@ -32,7 +32,7 @@ const sequelize = new Sequelize('comer_register', 'root', 'Gab090604', {
     res.render('register')
  })
 
- // Falta a de genero tirar duvida com Diogo (se não conseguir fazer como texto)
+ // Falta a de genero tirar duvida com Diogo (se não conseguir fazer trocar po texto)
  app.post('/received',function(req, res){
    User.create({
       id: req.body.id,
