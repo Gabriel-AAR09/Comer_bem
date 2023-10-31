@@ -1,11 +1,12 @@
 const express = require("express");
 const app = express();
-const handlebars  = require('express-handlebars')
-const bodyParser = require('body-parser')
+const handlebars  = require('express-handlebars');
+const bodyParser = require('body-parser');
 const User = require('./models/User');
 const Sequelize = require('sequelize');
 
-
+//Conexão com CSS
+app.use(express.static('public'));
 
 // Template Engine
 app.engine('handlebars', handlebars.engine({defaultLayout: 'main'}))
@@ -23,8 +24,8 @@ const sequelize = new Sequelize('comer_register', 'root', 'Gab090604', {
 
 // Rotas
  
- app.get('/prin', function(req, res){
-    res.render('index')
+ app.get('/home', function(req, res){
+    res.render('home')
  })
 
  app.get('/reg', function(req, res){
@@ -33,11 +34,22 @@ const sequelize = new Sequelize('comer_register', 'root', 'Gab090604', {
 
  // Falta a de genero tirar duvida com Diogo (se não conseguir fazer como texto)
  app.post('/received',function(req, res){
-   res.send(`firstname: ${req.body.firstname} lastname: ${req.body.lastname} email: ${req.body.email} 
-             password: ${req.body.password} Confirmpassword: ${req.body.Confirmpassword} gender: ${req.body.gender} `)
+   User.create({
+      id: req.body.id,
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
+      email: req.body.email,
+      password: req.body.password,
+      Confirmpassword: req.body.Confirmpassword,
+      gender: req.body.gender
+   }).then(function(){
+      res.redirect('/home')
+   }).catch(function(erro){
+      res.send("Houve um erro!" + erro)
+   })
  })
 
-
+ 
  // Localhost:3000
 app.listen(3000, function(){
     console.log("Servidor Rodando n a url http//localhost:3000");

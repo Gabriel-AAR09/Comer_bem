@@ -17,11 +17,11 @@ body {
 }
 
 .container {
-    width: 80%;
+    width: 60%;
     height: 80vh;
     display: flex;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, .212);
-    background: #b0fcd2;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, .212);
+    background: #79dfad;
 }
 
 .form-image {
@@ -30,7 +30,6 @@ body {
     justify-content: center;
     align-items: center;
     padding: 1rem;
-    background-color: #27ff85;
 }
 
 .form-image img {

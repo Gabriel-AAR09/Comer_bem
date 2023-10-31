@@ -26,14 +26,14 @@ const User = db.sequelize.define('users', {
         allowNull: false,
     },
 
-    passoword: {
+    password: {
         type: Sequelize.STRING,
         allowNull: false,
     },
 
-    confirmpassword: {
+    Confirmpassword: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
     },
 
     // Tirar duvida com diogo depois
