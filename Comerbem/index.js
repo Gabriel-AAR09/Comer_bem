@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const User = require('./models/User');
 const Sequelize = require('sequelize');
 
-//Conexão com CSS
+//Conexão com a pasta pulbic
 app.use(express.static('public'));
 
 // Template Engine
@@ -31,6 +31,12 @@ const sequelize = new Sequelize('comer_register', 'root', 'Gab090604', {
  app.get('/reg', function(req, res){
     res.render('register')
  })
+
+ app.get('/login', function(req, res){
+   res.render('login')
+ })
+
+ // falta a rota de pegar os dados do banco de dados é logar!
 
  // Falta a de genero tirar duvida com Diogo (se não conseguir fazer trocar po texto)
  app.post('/received',function(req, res){
